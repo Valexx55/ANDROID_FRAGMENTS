@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 public class ActividadPrincipal extends AppCompatActivity //Importantísimo. Esta actividad soporta fragments
-        implements FragmentListado.CorreosListener {
+ {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +16,11 @@ public class ActividadPrincipal extends AppCompatActivity //Importantísimo. Est
 
         FragmentListado frgListado = (FragmentListado)fm.findFragmentById(R.id.FrgListado);
 
-        frgListado.setCorreosListener(this);
+        frgListado.setLibrosListener(this);
     }
 
 
-    @Override
-    public void onCorreoSeleccionado(Libro c) {
+    public void onLibroSeleccionado(Libro c) {
 
         FragmentManager fm = getSupportFragmentManager();
 

@@ -24,7 +24,7 @@ public class FragmentListado extends Fragment {
 	
 	private ListView lstListado;
 	
-	private CorreosListener listener;
+	private ActividadPrincipal listener;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater,
@@ -45,10 +45,8 @@ public class FragmentListado extends Fragment {
 		lstListado.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> list, View view, int pos, long id) {
-				if (listener!=null) {
-					listener.onCorreoSeleccionado(
-							(Libro)lstListado.getAdapter().getItem(pos));
-				}
+					listener.onLibroSeleccionado(datos[pos]);
+
 			}
 		});
 	}
@@ -77,11 +75,8 @@ public class FragmentListado extends Fragment {
 		}
     }
 	
-	public interface CorreosListener {
-		void onCorreoSeleccionado(Libro c);
-	}
-	
-	public void setCorreosListener(CorreosListener listener) {
+
+	public void setLibrosListener (ActividadPrincipal listener) {
 		this.listener=listener;
 	}
 }
